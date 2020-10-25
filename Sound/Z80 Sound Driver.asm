@@ -30,8 +30,8 @@ soundBankName := "__LABEL__"
 DebugSoundbanks := 0
 
 finishBank macro
-	if * > soundBankStart + $A9F9
-		fatal "soundBank \{soundBankName} must fit in $8000 bytes but was $\{*-soundBankStart}. Try moving something to the other bank."
+	if * > soundBankStart + $D36D
+		fatal "soundBank \{soundBankName} must fit in $D36D bytes but was $\{*-soundBankStart}. Try moving something to the other bank."
 	elseif (DebugSoundbanks<>0)&&(MOMPASS=1)
 		message "soundBank \{soundBankName} has $\{$8000+soundBankStart-*} bytes free at end."
 	endif
