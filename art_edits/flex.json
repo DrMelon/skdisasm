@@ -1,0 +1,32 @@
+{
+    "description": "Flex 2 Project File",
+    "name": "SNOLF_KNOLF_TITLE",
+    "objects": [
+        {
+            "name": "ANDKnuckles",
+            "palettes": [
+                {
+                    "path": "..\\General\\Title\\Palettes\\S3.bin",
+                    "length": 1
+                }
+            ],
+            "art": {
+                "path": "..\\General\\Title\\Nemesis Art\\SK ANDKnuckles.bin",
+                "compression": "Nemesis"
+            },
+            "mappings": {
+                "path": "..\\General\\Title\\Map - S3 ANDKnuckles.asm",
+                "format": "Sonic 3&K",
+                "customDefinition": "",
+                "label": ""
+            },
+            "dplcs": {
+                "enabled": false,
+                "path": "",
+                "format": "Sonic 1",
+                "customDefinition": "",
+                "label": ""
+            }
+        }
+    ]
+}

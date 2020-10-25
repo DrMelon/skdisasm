@@ -30,7 +30,7 @@ soundBankName := "__LABEL__"
 DebugSoundbanks := 0
 
 finishBank macro
-	if * > soundBankStart + $8000
+	if * > soundBankStart + $A9F9
 		fatal "soundBank \{soundBankName} must fit in $8000 bytes but was $\{*-soundBankStart}. Try moving something to the other bank."
 	elseif (DebugSoundbanks<>0)&&(MOMPASS=1)
 		message "soundBank \{soundBankName} has $\{$8000+soundBankStart-*} bytes free at end."
@@ -4877,7 +4877,7 @@ z80_UniVoiceBank:
 ; ===========================================================================
 SndBank:			startBank
 
-SEGA_PCM:	binclude "Sound/Sega PCM.bin"
+SEGA_PCM:	binclude "Sound/snolf.bin"
 SEGA_PCM_End
 		align 2
 Sound_33:	binclude "Sound/SFX/33.bin"
