@@ -489,8 +489,8 @@ _unkF61A			ds.l 1			; unused
 V_scroll_value_P2 =		*
 V_scroll_value_FG_P2		ds.w 1
 V_scroll_value_BG_P2		ds.w 1
-Teleport_active_timer		ds.b 1			; left over from Sonic 2
-Teleport_active_flag		ds.b 1			; left over from Sonic 2
+Teleport_active_timer		ds.b 1			; left over from Sonic 2 -- Used by SNOLF
+Teleport_active_flag		ds.b 1			; left over from Sonic 2 -- Used by SNOLF
 H_int_counter_command		ds.w 1			; contains a command to write to VDP register $0A (line interrupt counter)
 H_int_counter =			H_int_counter_command+1	; just the counter part of the command
 Palette_fade_info =		*			; both index and count
@@ -750,6 +750,10 @@ Timer_frame =			Timer+3			; the second gets incremented when this reaches 60
 Score				ds.l 1
 Last_star_post_hit		ds.b 1
 
+
+; the following variables are all saved when hitting a star post
+Saved_last_star_post_hit	ds.b 1
+
 ; SNOLF 3 & KNOLF --- Snolf Variables
 Golf_meter_x:			ds.w	1 ; 2 bytes
 Golf_meter_y:			ds.w	1 ; 2 bytes
@@ -762,8 +766,6 @@ Golf_reset_timer:		ds.b	1; 1 byte
 Golf_accumulator:		ds.w	1; 2 bytes - to be used instead of timer_frames for golfin'
 Golf_swings_total:		ds.w	1; 2 bytes - swing total over whole game. hopefully nobody takes more than 65535 swings...
 
-; the following variables are all saved when hitting a star post
-Saved_last_star_post_hit	ds.b 1
 Saved_zone_and_act		ds.w 1
 Saved_X_pos			ds.w 1
 Saved_Y_pos			ds.w 1
