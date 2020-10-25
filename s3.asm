@@ -36,8 +36,8 @@ Vectors:	dc.l	Vectors,	EntryPoint,	ErrorTrap,	ErrorTrap	; 0
 		dc.l	ErrorTrap,	ErrorTrap,	ErrorTrap,	ErrorTrap	; 60
 Header:		dc.b "SEGA GENESIS    "
 Copyright:	dc.b "(C)SEGA 1993.NOV"
-Domestic_Name:	dc.b "SONIC THE             HEDGEHOG 3                "
-Overseas_Name:	dc.b "SONIC THE             HEDGEHOG 3                "
+Domestic_Name:	dc.b "SNOLF 3 AND KNOLF                               "
+Overseas_Name:	dc.b "SNOLF 3 AND KNOLF                               "
 Serial_Number:	dc.b "GM MK-1079 -00"
 Checksum:	dc.w $A8F2
 Input:		dc.b "J               "

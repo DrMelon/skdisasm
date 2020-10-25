@@ -608,7 +608,7 @@ Object_load_addr_front		ds.l 1			; the address inside the object placement data 
 Object_load_addr_back		ds.l 1			; the address inside the object placement data of the first object whose X pos is >= Camera_X_pos_coarse - $80
 Object_respawn_index_front	ds.w 1			; the object respawn table index for the object at Obj_load_addr_front
 Object_respawn_index_back	ds.w 1			; the object respawn table index for the object at Obj_load_addr_back
-			ds.b $16			; unused
+			ds.b $02			; unused
 Pal_fade_delay			ds.w 1			; timer for palette fade routines
 Collision_addr			ds.l 1			; points to the primary or secondary collision data as appropriate
 			ds.b $10			; unused
@@ -659,7 +659,6 @@ Target_camera_min_X_pos		ds.w 1			; the target camera minimum x-position
 Target_camera_min_Y_pos		ds.w 1			; the target camera minimum y-position
 Target_camera_max_Y_pos		ds.w 1			; the target camera maximum y-position
 Slotted_object_bits		ds.w 1			; bits to determine which slots are used for slotted objects
-			ds.b 6				; unused
 _unkFAA2			ds.b 1
 _unkFAA3			ds.b 1
 _unkFAA4			ds.w 1
@@ -718,7 +717,6 @@ Target_palette_line_4 =		Target_palette+$60	; $20 bytes
 Stack_contents			ds.b $100		; stack contents
 System_stack =			*			; this is the top of the stack, it grows downwards
 
-			ds.w 1				; unused
 Restart_level_flag		ds.w 1
 Level_frame_counter		ds.w 1			; the number of frames which have elapsed since the level started
 Debug_object			ds.b 1			; the current position in the debug mode object list
@@ -733,7 +731,7 @@ Current_zone_and_act =		*
 Current_zone			ds.b 1
 Current_act			ds.b 1
 Life_count			ds.b 1
-			ds.b 3				; unused
+			ds.b 1				; unused
 Current_special_stage		ds.b 1
 			ds.b 1				; unused
 Continue_count			ds.b 1
@@ -751,6 +749,18 @@ Timer_second =			Timer+2
 Timer_frame =			Timer+3			; the second gets incremented when this reaches 60
 Score				ds.l 1
 Last_star_post_hit		ds.b 1
+
+; SNOLF 3 & KNOLF --- Snolf Variables
+Golf_meter_x:			ds.w	1 ; 2 bytes
+Golf_meter_y:			ds.w	1 ; 2 bytes
+Golf_swings_taken:		ds.w	1 ; 2 bytes for sizing
+Golf_mode_status:			ds.w	1 ; 2 bytes; bit 0 = golf strike mode on/off, bit 1 = golf strike mode X/Y, bit 2 = golf mode override, bit 3 = is golf mode cheat on
+Golf_bar_posx:			ds.w	1; 2 bytes; golf bar pos stuff
+Golf_bar_posy:			ds.w	1; 2 bytes
+Golf_reset_timer:		ds.b	1; 1 byte
+						ds.b	1; 
+Golf_accumulator:		ds.w	1; 2 bytes - to be used instead of timer_frames for golfin'
+Golf_swings_total:		ds.w	1; 2 bytes - swing total over whole game. hopefully nobody takes more than 65535 swings...
 
 ; the following variables are all saved when hitting a star post
 Saved_last_star_post_hit	ds.b 1
