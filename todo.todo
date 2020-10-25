@@ -1,0 +1,86 @@
+✔ Header @done(20-10-25 22:50)
+☐ Golf Mode Toggle Debug Button (Pause_Resume)
+☐ Clear Swings Taken Score On Title Screen (TitleScreen_Loop)
+☐ Clear Cutscene Mode Override on Spawn (InitPlayers)
+☐ Clear Swings Taken Score anywhere we enter Zone Play Mode (OptionScreen_Start1P)
+☐ Set Cutscene Mode Override anywhere there is a cutscene. (Level Subroutines?)
+☐ Add Golf Meter Objects & Subroutines
+☐ End-Of-Level Reset Swings, Add to Total (loc_141E6, Snd_TallyEnd)
+☐ Declare Golf Meter Object IDs
+☐ Disable Golf Mode at end of stage so that sonic runs off properly (Signpost, Obj0D_Main_State3)
+☐ Jump subroutine to Golf Meter subroutine after Modes (Obj01_Modes). 
+☐ Normal Mode: Test to see if Cutscene Mode override is enabled. If not, skip CheckSpindash and Jump. 
+   - Keep Sloperesist
+   - Skip Sonic_Move
+   - Keep Sonic_roll, Sonic_levelbound, etc.
+☐ Roll Mode: Test if override is enabled. If not, skip pinball mode & jump subroutines. 
+   - Keep RollRepel, RollSpeed, LevelBound, etc
+☐ CheckRollStop: test override. Skip rest of checkrollstop if not overridden.
+☐ Keep sonic in rolled sprite... something to do with bclr #2,status(a0).
+☐ Golf Bouncer subroutine:
+   - Check if bounce enabled in options
+   - If so, negate the Xvel (neg.w x_vel(a0)) and half it (asr.w #1,x_vel(a0))
+☐ Golf_ResetBall:
+   - Set player pos to golf_bar_posx, also Y
+   - Set velocities null
+   - Set inertia null
+   - Do teleport VFX (may not be possible)
+
+☐ Sonic_GolfMeter:
+   - Test golf mode override
+   - If overridden, skip func
+   - Else, increment golf accumulator
+   - reset at 512 for sinewave
+   - check to see if reset button is held
+   - tick down timer if so, reset timer if not
+   - reset the ball if timer < 1; Golf_ResetBall
+   - Golf_ResetRelease, GolfMeterMainCheck
+
+☐ GolfResetRelease -- reset timer
+☐ GolfMeterMainCheck:
+   - Check controller for button press
+   - if nothing pushed, move on
+   - check for strikemode to increment meter x, y
+   - store golf strike position each frame we're in strikemode
+   - calculate sine on accumulator
+   - branch on x or y strike mode
+   - golfymode, golfxmode
+
+☐ GolfButtonPressed:
+   - check to make sure we're not moving
+   - reset x/y of strike mode when entering strike mode
+   - reset strike accum when entering strike mode
+   - reset position of strike accumulator when facing left for sinewave
+   - spawn objects for meter
+   - play sounds for strike begin, select, and shoot
+   - reset accum whenever we change strike phase
+☐ GolfSwing:
+   - clear strike mode status
+   - launch sonic and set roll & jump modes on #1,status(a0), inertia
+   - reset x/y of strikemode
+
+☐ Sonic_ChgJumpDir:
+   - prevent air control in golfmode; else jump-roll movement applies.
+
+☐ Sonic_Roll:
+   - if golf mode not overridden, skip the body of this func
+
+☐ Sonic_Jump:
+   - if golf mode not overridden, skip this func
+   - NOTE: might need check here for elemental shields/wkaitenattack
+
+☐ Sonic_JumpHeight - skip if not overridden, JumpHeightEnd
+   - NOTE: might need check in here for elemental shields
+
+☐ Sonic_Checkspindash: skip if not overridden
+☐ Golf_Bouncer needs to be called in DoLevelCollision for X axis, both left and right.
+☐ Called again somewhere for yvel? odd
+☐ Called again in HitLeftWall and HightRightWall and HitCeilingAndWalls
+☐ checkleftwalldist, checkrightwalldist
+
+☐ Sonic_ResetOnFloor
+  - check override, if overridden skip pinballmode, reset part 3, and walk anim pushes
+
+☐ Show shots taken instead of rings counter (HudUpdate)
+☐ same for HudEnd
+☐ 
