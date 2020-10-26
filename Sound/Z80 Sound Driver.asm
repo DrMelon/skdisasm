@@ -30,9 +30,9 @@ soundBankName := "__LABEL__"
 DebugSoundbanks := 0
 
 finishBank macro
-	if * > soundBankStart + $D36D
-		fatal "soundBank \{soundBankName} must fit in $D36D bytes but was $\{*-soundBankStart}. Try moving something to the other bank."
-	elseif (DebugSoundbanks<>0)&&(MOMPASS=1)
+	if * > soundBankStart + $8000
+		fatal "soundBank \{soundBankName} must fit in $8000 bytes but was $\{*-soundBankStart}. Try moving something to the other bank."
+	elseif (DebugSoundbanks<>1)&&(MOMPASS=1)
 		message "soundBank \{soundBankName} has $\{$8000+soundBankStart-*} bytes free at end."
 	endif
     endm
@@ -4875,9 +4875,17 @@ z80_UniVoiceBank:
 ; ===========================================================================
 ; Sound Bank
 ; ===========================================================================
+
+; SNOLF - make a bank just for the PCM or else move to snd bank 4 in lockon data
+;SnolfBank:			startBank
+;SEGA_PCM: binclude "Sound/snolf.bin"
+;SEGA_PCM_End
+;	align 2
+;    finishBank
+
 SndBank:			startBank
 
-SEGA_PCM:	binclude "Sound/snolf.bin"
+SEGA_PCM:	binclude "Sound/snolf_clip.bin"
 SEGA_PCM_End
 		align 2
 Sound_33:	binclude "Sound/SFX/33.bin"
