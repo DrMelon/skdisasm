@@ -86,5 +86,5 @@
 ☐ 
 
 ✔ Each character needs an insert for golf-esque button press (Knolf = off_16642 callpoint (modes selector), Tolf = off_138F6) @done(20-10-26 14:13)
-☐ (Try to find a way to fix Tolf in Snolf & Tolf mode. Either disable the option or localise snolf variables)
+✔ (Try to find a way to fix Tolf in Snolf & Tolf mode. Either disable the option or localise snolf variables)
 ☐ Do all physics/mode checks that are done for sonic skipping routines for Knolf and Tolf too, may take a while
