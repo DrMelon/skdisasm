@@ -17,14 +17,14 @@
    - Keep RollRepel, RollSpeed, LevelBound, etc
 ☐ CheckRollStop: test override. Skip rest of checkrollstop if not overridden.
 ☐ Keep sonic in rolled sprite... something to do with bclr #2,status(a0).
-☐ Golf Bouncer subroutine:
-   - Check if bounce enabled in options
-   - If so, negate the Xvel (neg.w x_vel(a0)) and half it (asr.w #1,x_vel(a0))
-☐ Golf_ResetBall:
-   - Set player pos to golf_bar_posx, also Y
-   - Set velocities null
-   - Set inertia null
-   - Do teleport VFX (may not be possible)
+✔ Golf Bouncer subroutine: @done(20-10-26 11:40)
+   [-] Check if bounce enabled in options 
+   ✔ If so, negate the Xvel (neg.w x_vel(a0)) and half it (asr.w #1,x_vel(a0)) @done(20-10-26 11:41)
+✔ Golf_ResetBall: @done(20-10-26 11:41)
+   ✔ Set player pos to golf_bar_posx, also Y @done(20-10-26 11:41)
+   ✔ Set velocities null @done(20-10-26 11:41)
+   ✔ Set inertia null @done(20-10-26 11:41)
+   ☐ Do teleport VFX (may not be possible)
 
 ☐ Sonic_GolfMeter:
    - Test golf mode override
