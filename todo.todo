@@ -26,7 +26,7 @@
    ✔ Set inertia null @done(20-10-26 11:41)
    ☐ Do teleport VFX (may not be possible)
 
-☐ Sonic_GolfMeter:
+✔ Sonic_GolfMeter: @done(20-10-26 11:46)
    - Test golf mode override
    - If overridden, skip func
    - Else, increment golf accumulator
@@ -36,8 +36,8 @@
    - reset the ball if timer < 1; Golf_ResetBall
    - Golf_ResetRelease, GolfMeterMainCheck
 
-☐ GolfResetRelease -- reset timer
-☐ GolfMeterMainCheck:
+✔ GolfResetRelease -- reset timer @done(20-10-26 11:46)
+✔ GolfMeterMainCheck: @done(20-10-26 11:46)
    - Check controller for button press
    - if nothing pushed, move on
    - check for strikemode to increment meter x, y
@@ -46,7 +46,7 @@
    - branch on x or y strike mode
    - golfymode, golfxmode
 
-☐ GolfButtonPressed:
+✔ GolfButtonPressed: @done(20-10-26 11:46)
    - check to make sure we're not moving
    - reset x/y of strike mode when entering strike mode
    - reset strike accum when entering strike mode
@@ -54,7 +54,7 @@
    - spawn objects for meter
    - play sounds for strike begin, select, and shoot
    - reset accum whenever we change strike phase
-☐ GolfSwing:
+✔ GolfSwing: @done(20-10-26 11:46)
    - clear strike mode status
    - launch sonic and set roll & jump modes on #1,status(a0), inertia
    - reset x/y of strikemode
