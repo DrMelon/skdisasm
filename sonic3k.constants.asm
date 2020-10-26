@@ -754,17 +754,6 @@ Last_star_post_hit		ds.b 1
 ; the following variables are all saved when hitting a star post
 Saved_last_star_post_hit	ds.b 1
 
-; SNOLF 3 & KNOLF --- Snolf Variables
-Golf_meter_x:			ds.w	1 ; 2 bytes
-Golf_meter_y:			ds.w	1 ; 2 bytes
-Golf_swings_taken:		ds.w	1 ; 2 bytes for sizing
-Golf_mode_status:			ds.w	1 ; 2 bytes; bit 0 = golf strike mode on/off, bit 1 = golf strike mode X/Y, bit 2 = golf mode override, bit 3 = is golf mode cheat on
-Golf_bar_posx:			ds.w	1; 2 bytes; golf bar pos stuff
-Golf_bar_posy:			ds.w	1; 2 bytes
-Golf_reset_timer:		ds.b	1; 1 byte
-						ds.b	1; 
-Golf_accumulator:		ds.w	1; 2 bytes - to be used instead of timer_frames for golfin'
-Golf_swings_total:		ds.w	1; 2 bytes - swing total over whole game. hopefully nobody takes more than 65535 swings...
 
 Saved_zone_and_act		ds.w 1
 Saved_X_pos			ds.w 1
@@ -859,6 +848,19 @@ Kos_last_module_size		ds.w 1			; the uncompressed size of the last module in wor
 Kos_module_queue		ds.w 3*4		; 6 bytes per entry, first longword is source location and next word is VRAM destination
 Kos_module_source =		Kos_module_queue	; long ; the compressed data location for the first module in the queue
 Kos_module_destination =	Kos_module_queue+4	; word ; the VRAM destination for the first module in the queue
+
+; SNOLF 3 & KNOLF --- Snolf Variables
+Golf_meter_x:			ds.w	1 ; 2 bytes
+Golf_meter_y:			ds.w	1 ; 2 bytes
+Golf_swings_taken:		ds.w	1 ; 2 bytes for sizing
+Golf_mode_status:			ds.w	1 ; 2 bytes; bit 0 = golf strike mode on/off, bit 1 = golf strike mode X/Y, bit 2 = golf mode override, bit 3 = is golf mode cheat on
+Golf_bar_posx:			ds.w	1; 2 bytes; golf bar pos stuff
+Golf_bar_posy:			ds.w	1; 2 bytes
+Golf_reset_timer:		ds.b	1; 1 byte
+						ds.b	1; 
+Golf_accumulator:		ds.w	1; 2 bytes - to be used instead of timer_frames for golfin'
+Golf_swings_total:		ds.w	1; 2 bytes - swing total over whole game. hopefully nobody takes more than 65535 swings...
+
 
 _unkFF7C			ds.w 1
 _unkFF7E			ds.w 1
