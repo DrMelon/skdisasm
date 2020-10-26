@@ -84,3 +84,5 @@
 ☐ Show shots taken instead of rings counter (HudUpdate)
 ☐ same for HudEnd
 ☐ 
+
+☐ Each character needs an insert for golf-esque button press (Knolf = off_16642 callpoint (modes selector), Tolf = off_138F6)
