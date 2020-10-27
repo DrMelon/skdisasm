@@ -608,10 +608,10 @@ Object_load_addr_front		ds.l 1			; the address inside the object placement data 
 Object_load_addr_back		ds.l 1			; the address inside the object placement data of the first object whose X pos is >= Camera_X_pos_coarse - $80
 Object_respawn_index_front	ds.w 1			; the object respawn table index for the object at Obj_load_addr_front
 Object_respawn_index_back	ds.w 1			; the object respawn table index for the object at Obj_load_addr_back
-			ds.b $02			; unused
+			ds.b $16			; unused
 Pal_fade_delay			ds.w 1			; timer for palette fade routines
 Collision_addr			ds.l 1			; points to the primary or secondary collision data as appropriate
-			ds.b $10			; unused
+			ds.b $02			; unused
 Boss_flag			ds.b 1			; set if a boss fight is going on
 			ds.b 5				; unused
 _unkF7B0			ds.b 4
@@ -659,6 +659,7 @@ Target_camera_min_X_pos		ds.w 1			; the target camera minimum x-position
 Target_camera_min_Y_pos		ds.w 1			; the target camera minimum y-position
 Target_camera_max_Y_pos		ds.w 1			; the target camera maximum y-position
 Slotted_object_bits		ds.w 1			; bits to determine which slots are used for slotted objects
+					ds.b 24 ;unused? maybe not!
 _unkFAA2			ds.b 1
 _unkFAA3			ds.b 1
 _unkFAA4			ds.w 1
@@ -716,7 +717,7 @@ Target_palette_line_3 =		Target_palette+$40	; $20 bytes
 Target_palette_line_4 =		Target_palette+$60	; $20 bytes
 Stack_contents			ds.b $100		; stack contents
 System_stack =			*			; this is the top of the stack, it grows downwards
-
+	ds.w 1				; unused --- maybe a palette buffer
 Restart_level_flag		ds.w 1
 Level_frame_counter		ds.w 1			; the number of frames which have elapsed since the level started
 Debug_object			ds.b 1			; the current position in the debug mode object list
@@ -826,7 +827,7 @@ _unkFEDA			ds.b 1
 _unkFEDC			ds.b 1
 _unkFEDD			ds.b 1
 _unkFEDE			ds.b 1			; unused
-			ds.b $23			; unused
+			ds.b $01			; unused
 Results_screen_2P		ds.w 1			; left over from Sonic 2
 Perfect_rings_left		ds.w 1			; left over from Sonic 2
 _unkFF06			ds.w 1			; uknown
@@ -849,17 +850,6 @@ Kos_module_queue		ds.w 3*4		; 6 bytes per entry, first longword is source locati
 Kos_module_source =		Kos_module_queue	; long ; the compressed data location for the first module in the queue
 Kos_module_destination =	Kos_module_queue+4	; word ; the VRAM destination for the first module in the queue
 
-; SNOLF 3 & KNOLF --- Snolf Variables
-Golf_meter_x:			ds.w	1 ; 2 bytes
-Golf_meter_y:			ds.w	1 ; 2 bytes
-Golf_swings_taken:		ds.w	1 ; 2 bytes for sizing
-Golf_mode_status:			ds.w	1 ; 2 bytes; bit 0 = golf strike mode on/off, bit 1 = golf strike mode X/Y, bit 2 = golf mode override, bit 3 = is golf mode cheat on
-Golf_bar_posx:			ds.w	1; 2 bytes; golf bar pos stuff
-Golf_bar_posy:			ds.w	1; 2 bytes
-Golf_reset_timer:		ds.b	1; 1 byte
-						ds.b	1; 
-Golf_accumulator:		ds.w	1; 2 bytes - to be used instead of timer_frames for golfin'
-Golf_swings_total:		ds.w	1; 2 bytes - swing total over whole game. hopefully nobody takes more than 65535 swings...
 
 
 _unkFF7C			ds.w 1
@@ -950,6 +940,19 @@ V_int_addr :=			V_int_jump+2		; long
 H_int_jump :=			*			; contains an instruction to jump to the H-int handler
 				ds.b 6			; Sonic 3 has a different address... So uh... Yes
 H_int_addr :=			H_int_jump+2		; long
+
+; SNOLF 3 & KNOLF --- Snolf Variables
+Golf_meter_x:			ds.w	1 ; 2 bytes
+Golf_meter_y:			ds.w	1 ; 2 bytes
+Golf_swings_taken:		ds.w	1 ; 2 bytes for sizing
+Golf_mode_status:			ds.w	1 ; 2 bytes; bit 0 = golf strike mode on/off, bit 1 = golf strike mode X/Y, bit 2 = golf mode override, bit 3 = is golf mode cheat on
+Golf_bar_posx:			ds.w	1; 2 bytes; golf bar pos stuff
+Golf_bar_posy:			ds.w	1; 2 bytes
+Golf_reset_timer:		ds.b	1; 1 byte
+						ds.b	1; 
+Golf_accumulator:		ds.w	1; 2 bytes - to be used instead of timer_frames for golfin'
+Golf_swings_total:		ds.w	1; 2 bytes - swing total over whole game. hopefully nobody takes more than 65535 swings...
+
 Checksum_string :=		*			; set to 'SM&K' once the checksum routine has run
 				ds.l 1			; Sonic 3 has a different address... So uh... Yes
 
@@ -1000,7 +1003,7 @@ Special_stage_clear_routine	ds.b 1			; if set, the player can't jump
 Special_stage_emerald_timer	ds.b 1			; counts down when the emerald appears, when it reaches 0 the emerald sound plays
 Special_stage_interact		ds.w 1			; address of the last bumper touched, or the emerald at the end of the stage
 Special_stage_started		ds.b 1			; set when the player begins moving at the start of the stage
-			ds.b $2F			; unused
+			ds.b $02			; unused
 SStage_extra_sprites :=		*			; some extra sprite info for special stages
 				ds.b $70		; Sonic 3 has a different address... So uh... Yes
 	dephase
