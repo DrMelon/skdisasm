@@ -209,8 +209,8 @@
 		dc.l Obj_FBZSpringPlunger		; 208
 		dc.l Obj_Ring				; 209
 		dc.l Obj_Ring				; 210
-		dc.l Obj_Ring				; 211
-		dc.l Obj_Ring				; 212
+		dc.l Obj_GolfMeterH				; 211
+		dc.l Obj_GolfMeterPip				; 212
 		dc.l Obj_Ring				; 213
 		dc.l Obj_Ring				; 214
 		dc.l Obj_Ring				; 215
