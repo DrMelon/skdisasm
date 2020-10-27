@@ -3,32 +3,6 @@
     "name": "SNOLF_KNOLF_TITLE",
     "objects": [
         {
-            "name": "ANDKnuckles",
-            "palettes": [
-                {
-                    "path": "..\\General\\Title\\Palettes\\S3.bin",
-                    "length": 1
-                }
-            ],
-            "art": {
-                "path": "..\\General\\Title\\Nemesis Art\\SK ANDKnuckles.bin",
-                "compression": "Nemesis"
-            },
-            "mappings": {
-                "path": "..\\General\\Title\\Map - S3 ANDKnuckles.asm",
-                "format": "Sonic 3&K",
-                "customDefinition": "",
-                "label": ""
-            },
-            "dplcs": {
-                "enabled": false,
-                "path": "",
-                "format": "Sonic 1",
-                "customDefinition": "",
-                "label": ""
-            }
-        },
-        {
             "name": "KTEIcon",
             "palettes": [
                 {
@@ -42,6 +16,32 @@
             },
             "mappings": {
                 "path": "KTE.map.bin",
+                "format": "Sonic 3&K",
+                "customDefinition": "",
+                "label": ""
+            },
+            "dplcs": {
+                "enabled": false,
+                "path": "",
+                "format": "Sonic 1",
+                "customDefinition": "",
+                "label": ""
+            }
+        },
+        {
+            "name": "STHIcon",
+            "palettes": [
+                {
+                    "path": "..\\General\\Sprites\\Sonic\\Palettes\\SonicAndTails.bin",
+                    "length": 1
+                }
+            ],
+            "art": {
+                "path": "..\\General\\Sprites\\HUD Icon\\Sonic life icon.bin",
+                "compression": "Nemesis"
+            },
+            "mappings": {
+                "path": "",
                 "format": "Sonic 3&K",
                 "customDefinition": "",
                 "label": ""
