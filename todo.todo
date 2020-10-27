@@ -4,6 +4,7 @@
 ☐ Clear Cutscene Mode Override on Spawn (InitPlayers)
 ☐ Clear Swings Taken Score anywhere we enter Zone Play Mode (OptionScreen_Start1P)
 ☐ Set Cutscene Mode Override anywhere there is a cutscene. (Level Subroutines?)
+☐ Save swings taken in SRAM? Show on save screen?
 ✔ Add Golf Meter Objects & Subroutines @done(20-10-26 21:06)
 ☐ End-Of-Level Reset Swings, Add to Total (loc_141E6, Snd_TallyEnd)
 ✔ Declare Golf Meter Object IDs @done(20-10-26 21:06)
@@ -89,3 +90,4 @@
 ✔ (Try to find a way to fix Tolf in Snolf & Tolf mode. Either disable the option or localise snolf variables)
 ☐ Do all physics/mode checks that are done for sonic skipping routines for Knolf and Tolf too, may take a while
 ☐ Modify lives display to show SNOLF, KNOLF, TOLF
+☐ Flip golfmeter upside down when grav flipped, same with launchdir
