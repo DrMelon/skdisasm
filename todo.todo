@@ -4,9 +4,9 @@
 ☐ Clear Cutscene Mode Override on Spawn (InitPlayers)
 ☐ Clear Swings Taken Score anywhere we enter Zone Play Mode (OptionScreen_Start1P)
 ☐ Set Cutscene Mode Override anywhere there is a cutscene. (Level Subroutines?)
-☐ Add Golf Meter Objects & Subroutines
+✔ Add Golf Meter Objects & Subroutines @done(20-10-26 21:06)
 ☐ End-Of-Level Reset Swings, Add to Total (loc_141E6, Snd_TallyEnd)
-☐ Declare Golf Meter Object IDs
+✔ Declare Golf Meter Object IDs @done(20-10-26 21:06)
 ☐ Disable Golf Mode at end of stage so that sonic runs off properly (Signpost, Obj0D_Main_State3)
 ☐ Jump subroutine to Golf Meter subroutine after Modes (Obj01_Modes). 
 ☐ Normal Mode: Test to see if Cutscene Mode override is enabled. If not, skip CheckSpindash and Jump. 
@@ -18,46 +18,47 @@
 ☐ CheckRollStop: test override. Skip rest of checkrollstop if not overridden.
 ☐ Keep sonic in rolled sprite... something to do with bclr #2,status(a0).
 ✔ Golf Bouncer subroutine: @done(20-10-26 11:40)
-   [-] Check if bounce enabled in options 
+   X Check if bounce enabled in options 
    ✔ If so, negate the Xvel (neg.w x_vel(a0)) and half it (asr.w #1,x_vel(a0)) @done(20-10-26 11:41)
 ✔ Golf_ResetBall: @done(20-10-26 11:41)
    ✔ Set player pos to golf_bar_posx, also Y @done(20-10-26 11:41)
    ✔ Set velocities null @done(20-10-26 11:41)
    ✔ Set inertia null @done(20-10-26 11:41)
-   ☐ Do teleport VFX (may not be possible)
+   X Do teleport VFX (may not be possible) @done(20-10-26 21:07)
 
 ✔ Sonic_GolfMeter: @done(20-10-26 11:46)
-   - Test golf mode override
-   - If overridden, skip func
-   - Else, increment golf accumulator
-   - reset at 512 for sinewave
-   - check to see if reset button is held
-   - tick down timer if so, reset timer if not
-   - reset the ball if timer < 1; Golf_ResetBall
-   - Golf_ResetRelease, GolfMeterMainCheck
+   ~ Test golf mode override
+        ✔ Changed to check control lockout instead @done(20-10-26 21:07)
+   ✔ If overridden, skip func @done(20-10-26 21:15)
+   ✔ Else, increment golf accumulator @done(20-10-26 21:15)
+   ✔ reset at 512 for sinewave @done(20-10-26 21:15)
+   ✔ check to see if reset button is held @done(20-10-26 21:15)
+   ✔ tick down timer if so, reset timer if not @done(20-10-26 21:15)
+   ✔ reset the ball if timer < 1; Golf_ResetBall @done(20-10-26 21:15)
+   ✔ Golf_ResetRelease, GolfMeterMainCheck @done(20-10-26 21:15)
 
 ✔ GolfResetRelease -- reset timer @done(20-10-26 11:46)
 ✔ GolfMeterMainCheck: @done(20-10-26 11:46)
-   - Check controller for button press
-   - if nothing pushed, move on
-   - check for strikemode to increment meter x, y
-   - store golf strike position each frame we're in strikemode
-   - calculate sine on accumulator
-   - branch on x or y strike mode
-   - golfymode, golfxmode
+   ✔ Check controller for button press @done(20-10-26 21:15)
+   ✔ if nothing pushed, move on @done(20-10-26 21:15)
+   ✔ check for strikemode to increment meter x, y @done(20-10-26 21:15)
+   ✔ store golf strike position each frame we're in strikemode @done(20-10-26 21:15)
+   ✔ calculate sine on accumulator @done(20-10-26 21:15)
+   ✔ branch on x or y strike mode @done(20-10-26 21:15)
+   ✔ golfymode, golfxmode @done(20-10-26 21:15)
 
 ✔ GolfButtonPressed: @done(20-10-26 11:46)
-   - check to make sure we're not moving
-   - reset x/y of strike mode when entering strike mode
-   - reset strike accum when entering strike mode
-   - reset position of strike accumulator when facing left for sinewave
-   - spawn objects for meter
-   - play sounds for strike begin, select, and shoot
-   - reset accum whenever we change strike phase
+   ✔ check to make sure we're not moving @done(20-10-26 21:15)
+   ✔ reset x/y of strike mode when entering strike mode @done(20-10-26 21:15)
+   ✔ reset strike accum when entering strike mode @done(20-10-26 21:15)
+   ✔ reset position of strike accumulator when facing left for sinewave @done(20-10-26 21:15)
+   ✔ spawn objects for meter @done(20-10-26 21:15)
+   ✔ play sounds for strike begin, select, and shoot @done(20-10-26 21:15)
+   ✔ reset accum whenever we change strike phase @done(20-10-26 21:15)
 ✔ GolfSwing: @done(20-10-26 11:46)
-   - clear strike mode status
-   - launch sonic and set roll & jump modes on #1,status(a0), inertia
-   - reset x/y of strikemode
+   ✔ clear strike mode status @done(20-10-26 21:15)
+   ✔ launch sonic and set roll & jump modes on #1,status(a0), inertia @done(20-10-26 21:15)
+   ✔ reset x/y of strikemode @done(20-10-26 21:15)
 
 ☐ Sonic_ChgJumpDir:
    - prevent air control in golfmode; else jump-roll movement applies.
@@ -82,9 +83,9 @@
   - check override, if overridden skip pinballmode, reset part 3, and walk anim pushes
 
 ☐ Show shots taken instead of rings counter (HudUpdate)
-☐ same for HudEnd
-☐ 
+☐ same for HudEnd 
 
 ✔ Each character needs an insert for golf-esque button press (Knolf = off_16642 callpoint (modes selector), Tolf = off_138F6) @done(20-10-26 14:13)
 ✔ (Try to find a way to fix Tolf in Snolf & Tolf mode. Either disable the option or localise snolf variables)
 ☐ Do all physics/mode checks that are done for sonic skipping routines for Knolf and Tolf too, may take a while
+☐ Modify lives display to show SNOLF, KNOLF, TOLF

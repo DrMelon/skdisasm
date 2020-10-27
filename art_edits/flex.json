@@ -27,6 +27,32 @@
                 "customDefinition": "",
                 "label": ""
             }
+        },
+        {
+            "name": "KTEIcon",
+            "palettes": [
+                {
+                    "path": "..\\General\\Sprites\\Knuckles\\Palettes\\Main.bin",
+                    "length": 1
+                }
+            ],
+            "art": {
+                "path": "..\\General\\Sprites\\HUD Icon\\Knuckles life icon.bin",
+                "compression": "Nemesis"
+            },
+            "mappings": {
+                "path": "KTE.map.bin",
+                "format": "Sonic 3&K",
+                "customDefinition": "",
+                "label": ""
+            },
+            "dplcs": {
+                "enabled": false,
+                "path": "",
+                "format": "Sonic 1",
+                "customDefinition": "",
+                "label": ""
+            }
         }
     ]
 }
