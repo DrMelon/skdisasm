@@ -80,15 +80,18 @@ X Save swings taken in SRAM? Show on save screen?
 ✔ Sonic_ResetOnFloor
   - check override, if overridden skip pinballmode, reset part 3, and walk anim pushes
 
-☐ Show shots taken instead of rings counter (HudUpdate)
-☐ same for HudEnd 
-☐ End-Of-Level Reset Swings, Add to Total (loc_141E6, Snd_TallyEnd)
-☐ Clear Swings Taken Score On Title Screen (TitleScreen_Loop)
-☐ Clear Cutscene Mode Override on Spawn (InitPlayers)
-☐ Clear Swings Taken Score anywhere we enter Zone Play Mode (OptionScreen_Start1P)
+✔ Show shots taken instead of rings counter (HudUpdate)
+✔ same for HudEnd 
+✔ End-Of-Level Reset Swings, Add to Total (loc_141E6, Snd_TallyEnd)
+✔ Clear Swings Taken Score On Title Screen (TitleScreen_Loop)
+✔ Clear Swings Taken Score anywhere we enter Zone Play Mode (OptionScreen_Start1P)
+
 
 ✔ Each character needs an insert for golf-esque button press (Knolf = off_16642 callpoint (modes selector), Tolf = off_138F6) @done(20-10-26 14:13)
 ✔ (Try to find a way to fix Tolf in Snolf & Tolf mode. Either disable the option or localise snolf variables)
 ✔ Do all physics/mode checks that are done for sonic skipping routines for Knolf and Tolf too, may take a while
+
 ☐ Modify lives display to show SNOLF, KNOLF, TOLF
+☐ Change HUD gfx to read "shots"
+
 ☐ Flip golfmeter upside down when grav flipped, same with launchdir
