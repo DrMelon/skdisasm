@@ -53,6 +53,69 @@
                 "customDefinition": "",
                 "label": ""
             }
+        },
+        {
+            "name": "TTFIcon",
+            "palettes": [],
+            "art": {
+                "path": "..\\General\\Sprites\\HUD Icon\\Tails Life Icon.bin",
+                "compression": "Nemesis"
+            },
+            "mappings": {
+                "path": "..\\General\\Sprites\\Sonic\\Palettes\\SonicAndTails.bin",
+                "format": "Sonic 3&K",
+                "customDefinition": "",
+                "label": ""
+            },
+            "dplcs": {
+                "enabled": false,
+                "path": "",
+                "format": "Sonic 1",
+                "customDefinition": "",
+                "label": ""
+            }
+        },
+        {
+            "name": "RingsHUD",
+            "palettes": [],
+            "art": {
+                "path": "..\\General\\Sprites\\HUD Icon\\HUD Text.bin",
+                "compression": "Nemesis"
+            },
+            "mappings": {
+                "path": "..\\General\\Sprites\\HUD Icon\\Map - HUD.asm",
+                "format": "Sonic 3&K",
+                "customDefinition": "",
+                "label": ""
+            },
+            "dplcs": {
+                "enabled": false,
+                "path": "",
+                "format": "Sonic 1",
+                "customDefinition": "",
+                "label": ""
+            }
+        },
+        {
+            "name": "RingHudText",
+            "palettes": [],
+            "art": {
+                "path": "..\\General\\Sprites\\Ring\\RingHUDText.bin",
+                "compression": "Nemesis"
+            },
+            "mappings": {
+                "path": "..\\General\\Sprites\\Ring\\Map - Ring.asm",
+                "format": "Sonic 3&K",
+                "customDefinition": "",
+                "label": ""
+            },
+            "dplcs": {
+                "enabled": false,
+                "path": "",
+                "format": "Sonic 1",
+                "customDefinition": "",
+                "label": ""
+            }
         }
     ]
 }
