@@ -1,23 +1,20 @@
 ✔ Header @done(20-10-25 22:50)
-☐ Golf Mode Toggle Debug Button (Pause_Resume)
-☐ Clear Swings Taken Score On Title Screen (TitleScreen_Loop)
-☐ Clear Cutscene Mode Override on Spawn (InitPlayers)
-☐ Clear Swings Taken Score anywhere we enter Zone Play Mode (OptionScreen_Start1P)
-☐ Set Cutscene Mode Override anywhere there is a cutscene. (Level Subroutines?)
-☐ Save swings taken in SRAM? Show on save screen?
+X Golf Mode Toggle Debug Button (Pause_Resume)
+
+X Save swings taken in SRAM? Show on save screen?
 ✔ Add Golf Meter Objects & Subroutines @done(20-10-26 21:06)
-☐ End-Of-Level Reset Swings, Add to Total (loc_141E6, Snd_TallyEnd)
+
 ✔ Declare Golf Meter Object IDs @done(20-10-26 21:06)
-☐ Disable Golf Mode at end of stage so that sonic runs off properly (Signpost, Obj0D_Main_State3)
-☐ Jump subroutine to Golf Meter subroutine after Modes (Obj01_Modes). 
-☐ Normal Mode: Test to see if Cutscene Mode override is enabled. If not, skip CheckSpindash and Jump. 
+✔ Disable Golf Mode at end of stage so that sonic runs off properly (Signpost, Obj0D_Main_State3)
+✔ Jump subroutine to Golf Meter subroutine after Modes (Obj01_Modes). 
+✔ Normal Mode: Test to see if Cutscene Mode override is enabled. If not, skip CheckSpindash and Jump. 
    - Keep Sloperesist
    - Skip Sonic_Move
    - Keep Sonic_roll, Sonic_levelbound, etc.
-☐ Roll Mode: Test if override is enabled. If not, skip pinball mode & jump subroutines. 
+✔ Roll Mode: Test if override is enabled. If not, skip pinball mode & jump subroutines. 
    - Keep RollRepel, RollSpeed, LevelBound, etc
-☐ CheckRollStop: test override. Skip rest of checkrollstop if not overridden.
-☐ Keep sonic in rolled sprite... something to do with bclr #2,status(a0).
+✔ CheckRollStop: test override. Skip rest of checkrollstop if not overridden.
+✔ Keep sonic in rolled sprite... something to do with bclr #2,status(a0).
 ✔ Golf Bouncer subroutine: @done(20-10-26 11:40)
    X Check if bounce enabled in options 
    ✔ If so, negate the Xvel (neg.w x_vel(a0)) and half it (asr.w #1,x_vel(a0)) @done(20-10-26 11:41)
@@ -61,33 +58,37 @@
    ✔ launch sonic and set roll & jump modes on #1,status(a0), inertia @done(20-10-26 21:15)
    ✔ reset x/y of strikemode @done(20-10-26 21:15)
 
-☐ Sonic_ChgJumpDir:
+✔ Sonic_ChgJumpDir:
    - prevent air control in golfmode; else jump-roll movement applies.
 
-☐ Sonic_Roll:
+✔ Sonic_Roll:
    - if golf mode not overridden, skip the body of this func
 
-☐ Sonic_Jump:
+✔ Sonic_Jump:
    - if golf mode not overridden, skip this func
    - NOTE: might need check here for elemental shields/wkaitenattack
 
-☐ Sonic_JumpHeight - skip if not overridden, JumpHeightEnd
+✔ Sonic_JumpHeight - skip if not overridden, JumpHeightEnd
    - NOTE: might need check in here for elemental shields
 
-☐ Sonic_Checkspindash: skip if not overridden
-☐ Golf_Bouncer needs to be called in DoLevelCollision for X axis, both left and right.
-☐ Called again somewhere for yvel? odd
-☐ Called again in HitLeftWall and HightRightWall and HitCeilingAndWalls
-☐ checkleftwalldist, checkrightwalldist
+✔ Sonic_Checkspindash: skip if not overridden
+✔ Golf_Bouncer needs to be called in DoLevelCollision for X axis, both left and right.
+✔ Called again somewhere for yvel? odd
+✔ Called again in HitLeftWall and HightRightWall and HitCeilingAndWalls
+✔ checkleftwalldist, checkrightwalldist
 
-☐ Sonic_ResetOnFloor
+✔ Sonic_ResetOnFloor
   - check override, if overridden skip pinballmode, reset part 3, and walk anim pushes
 
 ☐ Show shots taken instead of rings counter (HudUpdate)
 ☐ same for HudEnd 
+☐ End-Of-Level Reset Swings, Add to Total (loc_141E6, Snd_TallyEnd)
+☐ Clear Swings Taken Score On Title Screen (TitleScreen_Loop)
+☐ Clear Cutscene Mode Override on Spawn (InitPlayers)
+☐ Clear Swings Taken Score anywhere we enter Zone Play Mode (OptionScreen_Start1P)
 
 ✔ Each character needs an insert for golf-esque button press (Knolf = off_16642 callpoint (modes selector), Tolf = off_138F6) @done(20-10-26 14:13)
 ✔ (Try to find a way to fix Tolf in Snolf & Tolf mode. Either disable the option or localise snolf variables)
-☐ Do all physics/mode checks that are done for sonic skipping routines for Knolf and Tolf too, may take a while
+✔ Do all physics/mode checks that are done for sonic skipping routines for Knolf and Tolf too, may take a while
 ☐ Modify lives display to show SNOLF, KNOLF, TOLF
 ☐ Flip golfmeter upside down when grav flipped, same with launchdir
