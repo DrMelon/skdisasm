@@ -91,7 +91,8 @@ X Save swings taken in SRAM? Show on save screen?
 ✔ (Try to find a way to fix Tolf in Snolf & Tolf mode. Either disable the option or localise snolf variables)
 ✔ Do all physics/mode checks that are done for sonic skipping routines for Knolf and Tolf too, may take a while
 
-☐ Modify lives display to show SNOLF, KNOLF, TOLF
-☐ Change HUD gfx to read "shots"
+✔ Modify lives display to show SNOLF, KNOLF, TOLF @done(20-10-29 00:30)
+✔ Change HUD gfx to read "shots" @done(20-10-29 00:30)
 
-☐ Flip golfmeter upside down when grav flipped, same with launchdir
+☐ Flip golfmeter upside down when grav flipped
+☐ Fix vines in mush hill, blocks in ice cap - maybe need to set spindash flag when launching self
