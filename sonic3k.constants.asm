@@ -949,9 +949,10 @@ Golf_mode_status:			ds.w	1 ; 2 bytes; bit 0 = golf strike mode on/off, bit 1 = g
 Golf_bar_posx:			ds.w	1; 2 bytes; golf bar pos stuff
 Golf_bar_posy:			ds.w	1; 2 bytes
 Golf_reset_timer:		ds.b	1; 1 byte
-						ds.b	1; 
+						ds.b    1; alignment byte
 Golf_accumulator:		ds.w	1; 2 bytes - to be used instead of timer_frames for golfin'
 Golf_swings_total:		ds.w	1; 2 bytes - swing total over whole game. hopefully nobody takes more than 65535 swings...
+Golf_did_just_swing:	ds.w    1; 2 bytes - did we just swing?
 
 Checksum_string :=		*			; set to 'SM&K' once the checksum routine has run
 				ds.l 1			; Sonic 3 has a different address... So uh... Yes

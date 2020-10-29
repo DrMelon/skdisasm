@@ -96,3 +96,9 @@ X Save swings taken in SRAM? Show on save screen?
 
 ☐ Flip golfmeter upside down when grav flipped
 ☐ Fix vines in mush hill, blocks in ice cap - maybe need to set spindash flag when launching self
+☐ Fix MGZ dash-trigger for door opening 
+{
+   does this : 
+   lea	(Player_1).w,a1 ;load player into a1
+   cmpi.b	#9,$20(a1)
+}
