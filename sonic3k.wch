@@ -1,0 +1,12 @@
+SystemID GEN
+00FFE0	w	u	1	68K RAM	Swings
+00FFE2	w	b	1	68K RAM	ModeFlag
+00FFE4	w	u	1	68K RAM	PosX
+00FFE6	w	u	1	68K RAM	PosY
+00FFE8	b	u	1	68K RAM	Reset Timer
+00FFEA	w	u	1	68K RAM	Accumulator
+00FFEC	w	b	1	68K RAM	TotalSwings
+00FFEE	w	b	1	68K RAM	DidSwing
+00FFF0	w	b	1	68K RAM	ForceAllow
+00FFF2	w	b	1	68K RAM	ForceATemp
+

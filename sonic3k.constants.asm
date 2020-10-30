@@ -954,6 +954,7 @@ Golf_accumulator:		ds.w	1; 2 bytes - to be used instead of timer_frames for golf
 Golf_swings_total:		ds.w	1; 2 bytes - swing total over whole game. hopefully nobody takes more than 65535 swings...
 Golf_did_just_swing:	ds.w    1; 2 bytes - did we just swing?
 Golf_force_allow:		ds.w	1; 2 bytes - force allow swings. for autoscroll sections
+Golf_force_temp:		ds.w	1; 2 bytes - same as golf force allow, but only for 1 swing
 
 Checksum_string :=		*			; set to 'SM&K' once the checksum routine has run
 				ds.l 1			; Sonic 3 has a different address... So uh... Yes
