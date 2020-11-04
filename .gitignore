@@ -9,6 +9,8 @@ skbuilt.prev.bin
 sonic3k.bin
 sonic3k.prev.bin
 sonic3k.lst
+sonic*.bin
+snolf*.bin
 Build/s3builtBinaryOutput.txt
 Build/s3builtErrors.txt
 Build/s3builtOutput.txt
