@@ -4,11 +4,11 @@ pushd "%~dp0\.."
 
 REM // make sure we can write to the file sonic3k.bin
 REM // also make a backup to sonic3k.prev.bin
-IF NOT EXIST sonic3k.bin goto LABLNOCOPY
+IF NOT EXIST sonic3k_nosuper.bin goto LABLNOCOPY
 IF EXIST sonic3k.prev.bin del sonic3k.prev.bin
 IF EXIST sonic3k.prev.bin goto LABLNOCOPY
-move /Y sonic3k.bin sonic3k.prev.bin
-IF EXIST sonic3k.bin goto LABLERROR2
+move /Y sonic3k_nosuper.bin sonic3k.prev.bin
+IF EXIST sonic3k_nosuper.bin goto LABLERROR2
 
 :LABLNOCOPY
 REM // delete some intermediate assembler output just in case
@@ -29,14 +29,14 @@ REM // allow the user to choose to output error messages to file by supplying th
 IF "%1"=="-logerrors" ( "AS\Win32\asw.exe" -xx -q -c -D Sonic3_Complete=1 -D NoSuper=1 -E -A -L sonic3k.asm ) ELSE "AS\Win32\asw.exe" -xx -q -c -D Sonic3_Complete=1 -D NoSuper=1 -A -L sonic3k.asm
 
 REM // if there were errors, a log file is produced
-IF "%1"=="-logerrors" ( IF EXIST sonic3k.log goto LABLERROR3 )
+IF "%1"=="-logerrors" ( IF EXIST sonic3k_nosuper.log goto LABLERROR3 )
 
 REM // combine the assembler output into a rom
 IF EXIST sonic3k.p "AS\Win32\s3p2bin" sonic3k.p sonic3k_nosuper.bin sonic3k.h
 
 REM // done -- pause if we seem to have failed, then exit
 IF NOT EXIST sonic3k.p goto LABLPAUSE
-IF EXIST sonic3k.bin goto LABLEXIT
+IF EXIST sonic3k_nosuper.bin goto LABLEXIT
 
 :LABLPAUSE
 pause
@@ -48,7 +48,7 @@ pause
 goto LABLEXIT
 
 :LABLERROR2
-echo Failed to build because write access to sonic3k.bin was denied.
+echo Failed to build because write access to sonic3k_nosuper.bin was denied.
 pause
 goto LABLEXIT
 
@@ -57,7 +57,7 @@ REM // display a noticeable message
 echo.
 echo ***************************************************************************
 echo *                                                                         *
-echo *   There were build errors/warnings. See sonic3k.log for more details.   *
+echo *   There were build errors/warnings. See sonic3k_nosuper.log for more details.   *
 echo *                                                                         *
 echo ***************************************************************************
 echo.
