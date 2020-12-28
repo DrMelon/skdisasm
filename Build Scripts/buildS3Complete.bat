@@ -36,7 +36,10 @@ IF EXIST sonic3k.p "AS\Win32\s3p2bin" sonic3k.p sonic3k.bin sonic3k.h
 
 REM // done -- pause if we seem to have failed, then exit
 IF NOT EXIST sonic3k.p goto LABLPAUSE
-IF EXIST sonic3k.bin goto LABLEXIT
+IF EXIST sonic3k.bin (
+   ConvSym sonic3k.lst sonic3k.bin -input as_lst -a
+   goto LABLEXIT
+)
 
 :LABLPAUSE
 pause

@@ -611,7 +611,7 @@ Object_respawn_index_back	ds.w 1			; the object respawn table index for the obje
 			ds.b $16			; unused
 Pal_fade_delay			ds.w 1			; timer for palette fade routines
 Collision_addr			ds.l 1			; points to the primary or secondary collision data as appropriate
-			ds.b $02			; unused
+			ds.b $10			; unused
 Boss_flag			ds.b 1			; set if a boss fight is going on
 			ds.b 5				; unused
 _unkF7B0			ds.b 4
@@ -659,7 +659,7 @@ Target_camera_min_X_pos		ds.w 1			; the target camera minimum x-position
 Target_camera_min_Y_pos		ds.w 1			; the target camera minimum y-position
 Target_camera_max_Y_pos		ds.w 1			; the target camera maximum y-position
 Slotted_object_bits		ds.w 1			; bits to determine which slots are used for slotted objects
-					ds.b 24 ;unused? maybe not!
+					ds.b 6 ;unused? maybe not!
 _unkFAA2			ds.b 1
 _unkFAA3			ds.b 1
 _unkFAA4			ds.w 1
@@ -732,7 +732,7 @@ Current_zone_and_act =		*
 Current_zone			ds.b 1
 Current_act			ds.b 1
 Life_count			ds.b 1
-			ds.b 1				; unused
+			ds.b 3				; unused
 Current_special_stage		ds.b 1
 			ds.b 1				; unused
 Continue_count			ds.b 1
@@ -827,7 +827,7 @@ _unkFEDA			ds.b 1
 _unkFEDC			ds.b 1
 _unkFEDD			ds.b 1
 _unkFEDE			ds.b 1			; unused
-			ds.b $01			; unused
+			ds.b $0B			; unused
 Results_screen_2P		ds.w 1			; left over from Sonic 2
 Perfect_rings_left		ds.w 1			; left over from Sonic 2
 _unkFF06			ds.w 1			; uknown
@@ -890,6 +890,21 @@ Super_emerald_count		ds.b 1
 Collected_emeralds_array	ds.b 7			; 1 byte per emerald, 0 = not collected, 1 = chaos emerald collected, 2 = grey super emerald, 3 = super emerald collected
 			ds.b 1				; unused
 
+; SNOLF 3 & KNOLF --- Snolf Variables
+Golf_meter_x:			ds.w	1 ; 2 bytes
+Golf_meter_y:			ds.w	1 ; 2 bytes
+Golf_swings_taken:		ds.w	1 ; 2 bytes for sizing
+Golf_mode_status:			ds.w	1 ; 2 bytes; bit 0 = golf strike mode on/off, bit 1 = golf strike mode X/Y, bit 2 = golf mode override, bit 3 = is golf mode cheat on
+Golf_bar_posx:			ds.w	1; 2 bytes; golf bar pos stuff
+Golf_bar_posy:			ds.w	1; 2 bytes
+Golf_reset_timer:		ds.b	1; 1 byte
+						ds.b    1; alignment byte
+Golf_accumulator:		ds.w	1; 2 bytes - to be used instead of timer_frames for golfin'
+Golf_swings_total:		ds.w	1; 2 bytes - swing total over whole game. hopefully nobody takes more than 65535 swings...
+Golf_did_just_swing:	ds.w    1; 2 bytes - did we just swing?
+Golf_force_allow:		ds.w	1; 2 bytes - force allow swings. for autoscroll sections
+Golf_force_temp:		ds.w	1; 2 bytes - same as golf force allow, but only for 1 swing					
+
 Emeralds_converted_flag		ds.b 1			; set if at least one emerald has been converted to a super emerald
 SK_special_stage_flag		ds.b 1			; set if a Sonic & Knuckles special stage is being run
 Title_anim_buffer		ds.b 1			; status of the title animation buffer. Changes 2 different nametables in VDP while the other is being processed
@@ -941,20 +956,7 @@ H_int_jump :=			*			; contains an instruction to jump to the H-int handler
 				ds.b 6			; Sonic 3 has a different address... So uh... Yes
 H_int_addr :=			H_int_jump+2		; long
 
-; SNOLF 3 & KNOLF --- Snolf Variables
-Golf_meter_x:			ds.w	1 ; 2 bytes
-Golf_meter_y:			ds.w	1 ; 2 bytes
-Golf_swings_taken:		ds.w	1 ; 2 bytes for sizing
-Golf_mode_status:			ds.w	1 ; 2 bytes; bit 0 = golf strike mode on/off, bit 1 = golf strike mode X/Y, bit 2 = golf mode override, bit 3 = is golf mode cheat on
-Golf_bar_posx:			ds.w	1; 2 bytes; golf bar pos stuff
-Golf_bar_posy:			ds.w	1; 2 bytes
-Golf_reset_timer:		ds.b	1; 1 byte
-						ds.b    1; alignment byte
-Golf_accumulator:		ds.w	1; 2 bytes - to be used instead of timer_frames for golfin'
-Golf_swings_total:		ds.w	1; 2 bytes - swing total over whole game. hopefully nobody takes more than 65535 swings...
-Golf_did_just_swing:	ds.w    1; 2 bytes - did we just swing?
-Golf_force_allow:		ds.w	1; 2 bytes - force allow swings. for autoscroll sections
-Golf_force_temp:		ds.w	1; 2 bytes - same as golf force allow, but only for 1 swing
+
 
 Checksum_string :=		*			; set to 'SM&K' once the checksum routine has run
 				ds.l 1			; Sonic 3 has a different address... So uh... Yes
@@ -1006,9 +1008,10 @@ Special_stage_clear_routine	ds.b 1			; if set, the player can't jump
 Special_stage_emerald_timer	ds.b 1			; counts down when the emerald appears, when it reaches 0 the emerald sound plays
 Special_stage_interact		ds.w 1			; address of the last bumper touched, or the emerald at the end of the stage
 Special_stage_started		ds.b 1			; set when the player begins moving at the start of the stage
-			ds.b $02			; unused
+			ds.b $2F		; unused
 SStage_extra_sprites :=		*			; some extra sprite info for special stages
 				ds.b $70		; Sonic 3 has a different address... So uh... Yes
+		
 	dephase
 ; ---------------------------------------------------------------------------
 ; Art tile stuff
